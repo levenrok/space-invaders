@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(term-invaders)
+project(term-invaders LANGUAGES CXX)
 
-add_executable(tinvaders src/main.cpp)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
-add_library(term_engine src/term_engine.cpp)
-
-target_link_libraries(tinvaders PUBLIC ncurses PRIVATE term_engine)
+add_subdirectory(src)
