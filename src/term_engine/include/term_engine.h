@@ -6,7 +6,7 @@
 #include <vector>
 
 void create_window(WINDOW*& window);
-void draw_sprite(WINDOW*& window, int x, int y, std::vector<std::string> sprite);
+void draw_sprite(WINDOW*& window, int x, int y, const std::vector<std::string>& sprite);
 void delete_window(WINDOW*& window);
 
 #endif  // __TERM_ENGINE_H__

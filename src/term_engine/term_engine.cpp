@@ -6,11 +6,13 @@ void create_window(WINDOW*& window) {
     cbreak();
 }
 
-void draw_sprite(WINDOW*& window, int x, int y, std::vector<std::string> sprite) {
-    move(y, x);
+void draw_sprite(WINDOW*& window, int x, int y, const std::vector<std::string>& sprite) {
     for (const std::string& line : sprite) {
-        wprintw(window, "%s\n", line.c_str());
+        wmove(window, y, x);
+        wprintw(window, "%s", line.c_str());
+        y++;
     }
+    wrefresh(window);
 }
 
 void delete_window(WINDOW*& window) {
