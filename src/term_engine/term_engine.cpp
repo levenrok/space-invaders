@@ -6,11 +6,11 @@ void Game::create_window() {
     cbreak();
 }
 
-void Game::draw_sprite(int x, int y, const std::vector<std::string>& sprite) {
+void Game::draw_sprite(position sprite_position, const std::vector<std::string>& sprite) {
     for (const std::string& line : sprite) {
-        wmove(window, y, x);
+        wmove(window, sprite_position.second, sprite_position.first);
         wprintw(window, "%s", line.c_str());
-        y++;
+        sprite_position.second++;
     }
     wrefresh(window);
 }

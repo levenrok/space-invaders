@@ -12,10 +12,13 @@ int main(void) {
         " /____\\",
         " |.--.|",
     };
+    position sprite_player_position;
 
     game.create_window();
 
-    game.draw_sprite(COLS / 2, LINES - sprite_player.size(), sprite_player);
+    sprite_player_position.first = COLS / 2;
+    sprite_player_position.second = LINES - sprite_player.size();
+    game.draw_sprite(sprite_player_position, sprite_player);
 
     game.delete_window();
 }
