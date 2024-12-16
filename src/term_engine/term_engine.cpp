@@ -1,12 +1,12 @@
 #include "include/term_engine.h"
 
-void create_window(WINDOW*& window) {
+void Game::create_window() {
     window = initscr();
     noecho();
     cbreak();
 }
 
-void draw_sprite(WINDOW*& window, int x, int y, const std::vector<std::string>& sprite) {
+void Game::draw_sprite(int x, int y, const std::vector<std::string>& sprite) {
     for (const std::string& line : sprite) {
         wmove(window, y, x);
         wprintw(window, "%s", line.c_str());
@@ -15,7 +15,7 @@ void draw_sprite(WINDOW*& window, int x, int y, const std::vector<std::string>& 
     wrefresh(window);
 }
 
-void delete_window(WINDOW*& window) {
+void Game::delete_window() {
     delwin(window);
     endwin();
 }

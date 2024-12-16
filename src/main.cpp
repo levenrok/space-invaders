@@ -4,7 +4,8 @@
 #include "term_engine/include/term_engine.h"
 
 int main(void) {
-    WINDOW* win_game;
+    Game game;
+
     std::vector<std::string> sprite_player = {
         "   /\\",
         "  |==|",
@@ -12,9 +13,9 @@ int main(void) {
         " |.--.|",
     };
 
-    create_window(win_game);
+    game.create_window();
 
-    draw_sprite(win_game, COLS / 2, LINES - sprite_player.size(), sprite_player);
+    game.draw_sprite(COLS / 2, LINES - sprite_player.size(), sprite_player);
 
-    delete_window(win_game);
+    game.delete_window();
 }

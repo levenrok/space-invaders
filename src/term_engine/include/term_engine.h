@@ -5,8 +5,14 @@
 #include <string>
 #include <vector>
 
-void create_window(WINDOW*& window);
-void draw_sprite(WINDOW*& window, int x, int y, const std::vector<std::string>& sprite);
-void delete_window(WINDOW*& window);
+class Game {
+  public:
+    void create_window();
+    void draw_sprite(int x, int y, const std::vector<std::string>& sprite);
+    void delete_window();
+
+  private:
+    WINDOW* window;
+};
 
 #endif  // __TERM_ENGINE_H__
