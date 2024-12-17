@@ -2,6 +2,7 @@
 #define __TERM_ENGINE_H__
 
 #include <ncurses.h>
+#include <algorithm>
 #include <string>
 #include <utility>
 #include <vector>
@@ -12,6 +13,7 @@ class Game {
   public:
     void create_window();
     void draw_sprite(position sprite_position, const std::vector<std::string>& sprite);
+    void move_sprite(position sprite_position, const std::vector<std::string>& sprite);
     void delete_window();
 
   private:

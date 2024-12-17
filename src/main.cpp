@@ -19,6 +19,7 @@ int main(void) {
     sprite_player_position.first = COLS / 2;
     sprite_player_position.second = LINES - sprite_player.size();
     game.draw_sprite(sprite_player_position, sprite_player);
+    game.move_sprite(sprite_player_position, sprite_player);
 
     game.delete_window();
 }
