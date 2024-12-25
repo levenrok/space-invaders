@@ -1,5 +1,4 @@
-add_executable(tinvaders main.cpp)
+file(GLOB_RECURSE SOURCE_FILES CONFIGURE_DEPENDS *.cpp)
+file(GLOB_RECURSE HEADER_FILES CONFIGURE_DEPENDS *.h)
 
-add_subdirectory(term_engine)
-
-target_link_libraries(tinvaders PRIVATE term_engine)
+target_sources(${PROJECT_NAME} PRIVATE ${SOURCE_FILES} ${HEADER_FILES})
