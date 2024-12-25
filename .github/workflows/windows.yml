@@ -8,7 +8,7 @@ on:
       - '.github/workflows/windows.yml'
   release:
     types: [published]
-    
+
 permissions:
   contents: read
 
@@ -22,20 +22,20 @@ jobs:
       PROJECT_NAME: ${{ github.event.repository.name }}
       PROJECT_BUILD_PATH: "${{ github.event.repository.name }}\\projects\\VS2022\\build\\${{ github.event.repository.name }}\\bin\\x64\\Release"
       PROJECT_RELEASE_PATH: ${{ github.event.repository.name }}_dev_win_x64
-      PROJECT_RESOURCES_PATH: resources
+      PROJECT_RESOURCES_PATH: ${{ github.event.repository.name }}/src/resources
 
     steps:
     - name: Checkout this repo
       uses: actions/checkout@master
       with:
         path: ${{ env.PROJECT_NAME }}
-      
+
     - name: Checkout raylib repo
       uses: actions/checkout@v4
       with:
         repository: raysan5/raylib
         path: raylib
-        
+
     # NOTE: Visual Studio project build configuration already defines all required directories where project is generated:
     # $(SolutionDir)\build\$(ProjectName)\bin\$(Platform)\$(Configuration)\
     - name: Setup Release Paths
@@ -45,7 +45,7 @@ jobs:
       if: github.event_name == 'release' && github.event.action == 'published'
 
     - name: Setup Environment
-      run: | 
+      run: |
         mkdir ${{ env.PROJECT_RELEASE_PATH }}
         dir
       shell: cmd
