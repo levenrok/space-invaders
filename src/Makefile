@@ -210,7 +210,7 @@ endif
 
 # Define include paths for required headers: INCLUDE_PATHS
 #------------------------------------------------------------------------------------------------
-INCLUDE_PATHS += -I. -Iexternal -I$(RAYLIB_INCLUDE_PATH)
+INCLUDE_PATHS += -I. -Iexternal -I$(RAYLIB_INCLUDE_PATH) -Isrc/include
 
 # Define additional directories containing required header files
 ifeq ($(PLATFORM),PLATFORM_DRM)

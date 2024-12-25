@@ -1,7 +1,7 @@
 #include <raylib.h>
 #include <cstdlib>
 
-#include "include/spaceship.hpp"
+#include "include/game.hpp"
 
 int main(void)
 {
@@ -11,13 +11,16 @@ int main(void)
     InitWindow(windowWidth, windowHeight, "C++ Space Invaders");
     SetTargetFPS(60);
 
-    SpaceShip spaceship;
+    Game game;
 
     while (WindowShouldClose() == false)
     {
-        BeginDrawing();
+        game.HandleInput();
 
-        spaceship.Draw();
+        BeginDrawing();
+        ClearBackground(BLACK);
+
+        game.Draw();
 
         EndDrawing();
     }
